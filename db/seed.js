@@ -4,11 +4,11 @@ const client = require('./client');
 const dropTables = async() => {
     try {
         await client.query(`
+            DROP TABLE IF EXISTS customers_robots;
+            DROP TABLE IF EXISTS robots_tasks;
             DROP TABLE IF EXISTS robots;
             DROP TABLE IF EXISTS tasks;
             DROP TABLE IF EXISTS customers;
-            DROP TABLE IF EXISTS customers_robots;
-            DROP TABLE IF EXISTS robots_tasks;
         `)
     } catch (error) {
         console.log(error);
@@ -40,13 +40,13 @@ const createTables = async() => {
             );
 
             CREATE TABLE customers_robots (
-                customer_id INTEGER,
-                robot_id INTEGER
+                customer_id INTEGER REFERENCES customers(id),
+                robot_id INTEGER REFERENCES robots(id)
             );
 
             CREATE TABLE robots_tasks (
-                robot_id INTEGER,
-                task_id INTEGER
+                robot_id INTEGER REFERENCES robots(id),
+                task_id INTEGER REFERENCES tasks(id)
             );
         `)
     } catch (error) {
