@@ -15,12 +15,13 @@ const createRobot = async(name, model, image, safeKids, company, expireDate, rel
 const getAllRobots = async() => {
     try {
         const allRobots = await client.query(`
-            SELECT id, name, image
-            FROM robots;
+            SELECT * FROM robots;
         `);
-        return allRobots;
+        console.log(allRobots);
     } catch (error) {
         console.log(error);
     }
 }
-module.exports = createRobot, getAllRobots;
+
+module.exports = createRobot;
+module.exports = getAllRobots;

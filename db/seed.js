@@ -2,6 +2,7 @@ const client = require('./client');
 const createCustomer = require('./customers');
 const createRobot = require('./robots');
 const createTask = require('./tasks');
+const getAllRobots = require('./robots');
 
 
 const dropTables = async() => {
@@ -92,6 +93,7 @@ const syncAndSeed = async() => {
     await createTask('Perform complex math calculations');
     await createTask('Read book');
     console.log('CREATED TASKS');
+    await getAllRobots();
     client.end;
 }
 syncAndSeed();
