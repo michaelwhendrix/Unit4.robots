@@ -1,6 +1,6 @@
 const client = require('./client');
 
-const createCustomers = async(name, email) => {
+const createCustomer = async(name, email) => {
     try {
         await client.query(`
             INSERT INTO customers ( name, email)
@@ -11,4 +11,4 @@ const createCustomers = async(name, email) => {
     }
 
 }
-module.exports = createCustomers;
+module.exports = createCustomer;
