@@ -1,4 +1,5 @@
 const client = require('./client');
+const createCustomers = require('./customers');
 const createRobot = require('./robots');
 
 
@@ -69,6 +70,14 @@ const syncAndSeed = async() => {
     await createRobot('Dusty', 'Gainfulation 9085', 'imagefile', false, 'Good Quality Bots', '2097-08-25', '2019-09-30');
     await createRobot('Zoombator', 'Exclestor 7767', 'imagefile', true, 'Elite Bots', '2200-12-25', '2023-09-21');
     console.log('CREATED ROBOTS');
+    await createCustomers('George Jetson', 'gjetson@galaxy.com');
+    await createCustomers('Keanu Reeves', 'jwick@ustudios.com');
+    await createCustomers('Hal Halibut', 'greatbigfish@galaxy.com');
+    await createCustomers('Willy Nilli', 'musicman@gmail.com');
+    await createCustomers('Hanna Montana', 'whatever@galaxy.com');
+    await createCustomers('Nancy Drew', 'hidenseek@books.com');
+    await createCustomers('Gladyse Knight', 'missingpips@columbia.com');
+    await createCustomers('Tony Stark', 'myemail@myserver.com');
     client.end;
 }
 syncAndSeed();
