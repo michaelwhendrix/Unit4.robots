@@ -1,7 +1,7 @@
 const client = require('./client');
 const createCustomer = require('./customers');
 const {createRobot, getAllRobots} = require('./robots');
-const createTask = require('./tasks');
+const createTask = require('./tasks.cjs');
 
 
 const dropTables = async() => {

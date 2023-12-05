@@ -1,4 +1,4 @@
-const client = require('./client');
+const client = require('./client.cjs');
 
 const createRobot = async(name, model, image, safeKids, company, expireDate, releaseDate) => {
     try {
@@ -14,11 +14,9 @@ const createRobot = async(name, model, image, safeKids, company, expireDate, rel
 
 const getAllRobots = async() => {
     try {
-        client.connect();
         const {rows} = await client.query(`
             SELECT * FROM robots;
         `);
-        client.end();
         return rows;
     } catch (error) {
         console.log(error);
