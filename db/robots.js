@@ -11,4 +11,16 @@ const createRobot = async(name, model, image, safeKids, company, expireDate, rel
         console.log(error);
     }
 }
-module.exports = createRobot;
+
+const getAllRobots = async() => {
+    try {
+        const allRobots = await client.query(`
+            SELECT id, name, image
+            FROM robots;
+        `);
+        return allRobots;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = createRobot, getAllRobots;
