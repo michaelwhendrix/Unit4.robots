@@ -1,12 +1,15 @@
 const express = require('express');
 const client = require('./db/client');
-const getAllRobots = require('./db/robots');
+const {getAllRobots} = require('./db/robots');
 const app = express();
-client.connect;
 
 app.get('/', async(req, res) => { 
-    const allRobots = await getAllRobots();
-    res.send(allRobots);
+    try {
+        const allRobots = await getAllRobots();
+        res.send(allRobots);    
+    } catch (error) {
+        console.log(error);
+    }
 
 });
 
